@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+
+    <style>
+        .size{
+            display: inline-block;
+            background-color: cornflowerblue;
+            font-size: 24px;
+            padding: 18px;
+            margin: 12px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="size">SIZE</div>
+
+    <script>
+        const size = document.querySelector('.size');
+
+        function updateSize() { //화면크기 표시
+            size.innerHTML = `
+            window.screen: ${window.screen.width},${window.screen.height} </br>
+            window.outer: ${window.outerWidth}, ${window.outerHeight} </br>
+            window.inner: ${window.innerWidth}, ${window.innerHeight}<br/>
+            documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}<br/>
+            `;
+        }
+
+        updateSize();
+
+        window.addEventListener('resize', () => { //window가 resize면
+            updateSize();
+        });
+    </script>
+    
+</body>
+</html>
